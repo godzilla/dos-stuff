@@ -102,6 +102,19 @@ namespace rpn
                     fStack.Push(b);
                     break;
 
+
+                case "i":
+                    if (fStack.Count < 1)
+                    {
+                        Console.WriteLine("i failed, stack count is " + fStack.Count.ToString());
+                        return;
+                    }
+                    a = fStack.Pop();
+                    b = 1 / a;
+                    fStack.Push(b);
+                    break;
+
+
                 case "pow":
                     if (fStack.Count < 2)
                     {
@@ -130,31 +143,28 @@ namespace rpn
                     break;
 
 
-
-
-            case "tire":
-                if (fStack.Count < 3)
-                {
-                    Console.WriteLine("tire failed, stack count is " + fStack.Count.ToString());
-                    Console.WriteLine("useage: 235 75 16 tire");
-                    return;
-                }
-                // 90000 6 180 payment
-                c = fStack.Pop();  // width in mm
-                b = fStack.Pop();  // profile 
-                a = fStack.Pop();  // rim radius
-                d = c;
-
-
-                d =  (a/25.4)*(b/100)*2+c;
-                fStack.Push(d);
-                break;
-
+                case "tire":
+                    if (fStack.Count < 3)
+                    {
+                        Console.WriteLine("tire failed, stack count is " + fStack.Count.ToString());
+                        Console.WriteLine("useage: 235 75 16 tire");
+                        return;
+                    }
+                    // 90000 6 180 payment
+                    c = fStack.Pop();  // width in mm
+                    b = fStack.Pop();  // profile 
+                    a = fStack.Pop();  // rim radius
+                    d = c;
+    
+    
+                    d =  (a/25.4)*(b/100)*2+c;
+                    fStack.Push(d);
+                    break;
 
 
 
 
-
+    
 
                 default:
                     Console.WriteLine("op(" + op + ") not supported");
@@ -168,6 +178,7 @@ namespace rpn
         {
 
             Console.WriteLine("x y +                   simple math (+ 1 * /");
+            Console.WriteLine("x i                     invert number 1/x");
             Console.WriteLine("x y pow                 power (x^y");
             Console.WriteLine("90000 6 180 payment     amortization (Principle Interest NumberOfMonths)");
             Console.WriteLine("235 75 16 tire          gives radius of tire in inches");
