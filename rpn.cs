@@ -177,11 +177,11 @@ namespace rpn
         static void ShowHelp()
         {
 
-            Console.WriteLine("x y +                   simple math (+ 1 * /");
-            Console.WriteLine("x i                     invert number 1/x");
-            Console.WriteLine("x y pow                 power (x^y");
-            Console.WriteLine("90000 6 180 payment     amortization (Principle Interest NumberOfMonths)");
-            Console.WriteLine("235 75 16 tire          gives radius of tire in inches");
+            Console.WriteLine("rpn 3 4 +                   simple math ( + 1 * / )");
+            Console.WriteLine("rpn 3 i                     invert number 1/x");
+            Console.WriteLine("rpn 2 3 pow                 power ( x^y )");
+            Console.WriteLine("rpn 90000 6 180 payment     amortization (Principle Interest NumberOfMonths)");
+            Console.WriteLine("rpn 235 75 16 tire          gives radius of tire in inches");
 
 
 
